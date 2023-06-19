@@ -206,8 +206,8 @@ Would you like to continue?  Y/N    ''').lower()
 
 
 
-players_copy = clean_data()
-experienced_players = experienced_list(players_copy)
-non_experienced_players = non_experienced_list(players_copy)
-create_teams(league, team_a, team_b, team_c, players_copy, experienced_players, non_experienced_players)
-display_league(league)
+    players_copy = clean_data()
+    experienced_players = experienced_list(players_copy)
+    non_experienced_players = non_experienced_list(players_copy)
+    create_teams(league, team_a, team_b, team_c, players_copy, experienced_players, non_experienced_players)
+    display_league(league)

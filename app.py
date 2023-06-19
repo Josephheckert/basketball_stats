@@ -38,6 +38,7 @@ if __name__ == "__main__":
         for player in players_copy:
             height_split = player["height"].split()
             player["height"] = height_split[0]
+            player["height"] = int(player["height"])
             if player["experience"] == "YES":
                 player["experience"] = True
             else:
@@ -108,11 +109,11 @@ if __name__ == "__main__":
     B) Quit
 """)
         main_menu_choice = input("Enter an option:    ").lower()
-        if main_menu_choice != "a" and main_menu_choice != "b":
+        while main_menu_choice != "a" and main_menu_choice != "b":
             print("Sorry, that's an invalid selection. Please choose one of the available options.\n")
-        else:
-            main_menu = main_menu_choice
-            return main_menu
+            main_menu_choice = input("Enter an option:    ").lower()
+        main_menu = main_menu_choice
+        return main_menu
 
 
     def print_team(team_print):
@@ -132,7 +133,9 @@ if __name__ == "__main__":
         avg_height = agg_height / player_count
         print(f'''
 ---- ROSTER ----
-              
+
+TEAM NAME: 
+    {team_print[0]["name"]}              
 PLAYERS: 
     {", ".join(team_print[2])}
     
@@ -175,6 +178,9 @@ Would you like to continue?  Y/N    ''').lower()
     C) {team_c[0]["name"]}
 ''')
             team_choice = input("Enter an option:    ").lower()
+            while team_choice != "a" and team_choice != "b" and team_choice != "c":
+                print("Sorry, that is an invalid entry, please try again!")
+                break
             if team_choice == "a":
                 team_print = team_a
                 print_team(team_print)
